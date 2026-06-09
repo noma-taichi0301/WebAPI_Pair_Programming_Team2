@@ -1,16 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "q170f5gdQOg=",
+  "dgSpecHash": "YnSoYragILM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\tnoma\\Desktop\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj",
+  "projectFilePath": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tnoma\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
     "C:\\Users\\tnoma\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.8\\microsoft.aspnetcore.openapi.10.0.8.nupkg.sha512",
+    "C:\\Users\\tnoma\\.nuget\\packages\\microsoft.data.sqlite\\10.0.8\\microsoft.data.sqlite.10.0.8.nupkg.sha512",
+    "C:\\Users\\tnoma\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.8\\microsoft.data.sqlite.core.10.0.8.nupkg.sha512",
     "C:\\Users\\tnoma\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
     "C:\\Users\\tnoma\\.nuget\\packages\\nlog\\6.1.3\\nlog.6.1.3.nupkg.sha512",
     "C:\\Users\\tnoma\\.nuget\\packages\\nlog.extensions.logging\\6.1.3\\nlog.extensions.logging.6.1.3.nupkg.sha512",
     "C:\\Users\\tnoma\\.nuget\\packages\\nlog.web.aspnetcore\\6.1.3\\nlog.web.aspnetcore.6.1.3.nupkg.sha512",
-    "C:\\Users\\tnoma\\.nuget\\packages\\scalar.aspnetcore\\2.14.14\\scalar.aspnetcore.2.14.14.nupkg.sha512"
+    "C:\\Users\\tnoma\\.nuget\\packages\\scalar.aspnetcore\\2.14.14\\scalar.aspnetcore.2.14.14.nupkg.sha512",
+    "C:\\Users\\tnoma\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.11\\sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
+    "C:\\Users\\tnoma\\.nuget\\packages\\sqlitepclraw.core\\2.1.11\\sqlitepclraw.core.2.1.11.nupkg.sha512",
+    "C:\\Users\\tnoma\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.11\\sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+    "C:\\Users\\tnoma\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.11\\sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512"
   ],
   "logs": []
 }
