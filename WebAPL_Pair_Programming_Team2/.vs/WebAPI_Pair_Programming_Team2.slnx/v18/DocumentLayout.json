@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1D2153D-5EA7-01BF-FD06-712AB89D47AC}|WebAPI_Pair_Programming_Team2.csproj|c:\\users\\tnoma\\desktop\\webapi_pair_programming_team2\\webapl_pair_programming_team2\\webapi_pair_programming_team2\\addusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1D2153D-5EA7-01BF-FD06-712AB89D47AC}|WebAPI_Pair_Programming_Team2.csproj|solutionrelative:webapi_pair_programming_team2\\addusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|c:\\users\\tnoma\\desktop\\webapi_pair_programming_team2\\webapl_pair_programming_team2\\webapi_pair_programming_team2\\addusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|solutionrelative:webapi_pair_programming_team2\\addusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1D2153D-5EA7-01BF-FD06-712AB89D47AC}|WebAPI_Pair_Programming_Team2.csproj|c:\\users\\tnoma\\desktop\\webapi_pair_programming_team2\\webapl_pair_programming_team2\\webapi_pair_programming_team2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1D2153D-5EA7-01BF-FD06-712AB89D47AC}|WebAPI_Pair_Programming_Team2.csproj|solutionrelative:webapi_pair_programming_team2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|c:\\users\\tnoma\\desktop\\webapi_pair_programming_team2\\webapl_pair_programming_team2\\webapi_pair_programming_team2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|solutionrelative:webapi_pair_programming_team2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddUserController.cs",
-              "DocumentMoniker": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\AddUserController.cs",
-              "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\AddUserController.cs",
-              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\AddUserController.cs",
-              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\AddUserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T02:28:11.929Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -41,9 +28,22 @@
               "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\Program.cs",
               "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\Program.cs",
               "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T02:27:00.457Z",
+              "WhenOpened": "2026-06-09T05:09:20.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AddUserController.cs",
+              "DocumentMoniker": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\AddUserController.cs",
+              "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\AddUserController.cs",
+              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\AddUserController.cs",
+              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\AddUserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-09T04:21:28.769Z",
               "EditorCaption": ""
             }
           ]
