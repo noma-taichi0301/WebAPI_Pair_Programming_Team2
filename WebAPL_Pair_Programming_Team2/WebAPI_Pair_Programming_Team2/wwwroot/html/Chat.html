@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チャット</title>
+    <link rel="stylesheet" href="../css/Style.css">
+</head>
+<body>
+
+    <!-- /* チャット */ -->
+    <div class="chat-container">
+        <header class="chat-header">
+            <div class="chat-title">全体チャット</div>
+            <button id="logoutButton">ログアウト</button>
+        </header>
+
+        <main id="chatMessages" class="chat-messages">
+            <div class="message-row other">
+                <div class="message-bubble">
+                    <div class="message-name">相手</div>
+                    <div class="message-text">こんにちは</div>
+                    <div class="message-time">10:00</div>
+                </div>
+            </div>
+
+            <div class="message-row mine">
+                <div class="message-bubble">
+                    <div class="message-text">お疲れ様です</div>
+                    <div class="message-time">10:01</div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="chat-input-area">
+            <input id="messageInput" type="text" placeholder="メッセージを入力">
+            <button id="sendButton">送信</button>
+        </footer>
+    </div>
+</body>
+</html>
