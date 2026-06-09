@@ -13,16 +13,21 @@
     </header>
 
     <!-- /* 登録フォーム */ -->
-    <T1>ユーザー新規登録</T1>
-    <input id="addUserName" placeholder="ユーザー名">
-    <input id="addPassword" type="password" placeholder="パスワード">
-    <button id="addUserButton">新規登録</button>
+    <div class="register-form">
+        <h1>ユーザー新規登録</h1>
+        <input id="addUserName" placeholder="ユーザー名">
+        <input id="addPassword" type="password" placeholder="パスワード">
+        <button id="addUserButton">新規登録</button>
+    </div>
 
     <!-- /* ログイン画面に戻るボタン */ -->
     <button onclick="location.href='Login.html'">ログイン画面に戻る</button>
 
     <!-- /* エラー表示メッセージ */ -->
     <p id="addErrorMessage"></p>
+
+    <!-- /* JS */ -->
+    <script src="../js/AddUser.js"></script>
 
 </body>
 </html>
