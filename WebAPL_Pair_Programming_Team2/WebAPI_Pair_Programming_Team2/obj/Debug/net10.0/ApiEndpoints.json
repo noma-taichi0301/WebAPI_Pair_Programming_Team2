@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "WebAPL_Pair_Programming_Team2.AddUserController",
+    "Method": "Login",
+    "RelativePath": "api/AddUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebAPL_Pair_Programming_Team2.AddUserController\u002BLoginInfo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
