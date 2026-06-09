@@ -14,19 +14,22 @@
     </header>
 
     <!-- /* ログインフォーム */ -->
-    <T1>ログイン</T1>
-    <input id="userName" placeholder="ユーザー名">
-    <input id="password" type="password" placeholder="パスワード">
-    <button id="loginButton">ログイン</button>
+    <div class="login-form">
+        <h1>ログイン</h1>
+        <input id="userName" placeholder="ユーザー名">
+        <input id="password" type="password" placeholder="パスワード">
+        <button id="loginButton">ログイン</button>
+    </div>
 
     <!-- /* ユーザー登録画面遷移ボタン */ -->
     <button onclick="location.href='AddUser.html'">ユーザー登録</button>
-
+    
     <!-- /* エラー表示メッセージ */ -->
     <p id="loginErrorMessage"></p>
 
     <!-- /* JS */ -->
-    <script src="Login.js"></script>
+    <script src="../js/Login.js"></script>
+
 </body>
 </html>
 

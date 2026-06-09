@@ -37,17 +37,17 @@ document.getElementById("loginButton").addEventListener("click", async () => {
         //レスポンス処理
         //成功したらログインユーザー確定して、チャット画面へ
         if (response.status === 200) {
-
             const loginUser = await response.json();
             console.info("ログイン成功");
             window.location.href = "Chat.html";
         }
-        else if (response.status === 400) {
-
+        else if (response.status === 400){
+            alert("入力値が不正です");
+        }
+        else if (response.status === 401) {
             alert("ユーザー名またはパスワードが正しくありません");
         }
-        else if (response.status === 500) {
-
+        else if (response.status === 500){
             alert("サーバーエラー");
         }
 

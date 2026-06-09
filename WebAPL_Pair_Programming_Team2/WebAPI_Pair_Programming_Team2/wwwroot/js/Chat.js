@@ -1,6 +1,6 @@
 ﻿function addMessage(chat) {
-    const chatArea = document.getElementById("chatMessages");
 
+    const chatArea = document.getElementById("chatMessages");
     const row = document.createElement("div");
 
     if (chat.userId === loginUserId) {
