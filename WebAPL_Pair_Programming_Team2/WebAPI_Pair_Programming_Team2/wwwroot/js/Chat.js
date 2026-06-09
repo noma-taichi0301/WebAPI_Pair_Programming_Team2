@@ -22,3 +22,15 @@
     // 最新メッセージへスクロール
     chatArea.scrollTop = chatArea.scrollHeight;
 }
+
+
+//テキストボックス調整
+const textarea = document.getElementById("messageInput");
+
+textarea.addEventListener("input", () => {
+
+    textarea.style.height = "44px";
+
+    textarea.style.height = textarea.scrollHeight + "px";
+
+});

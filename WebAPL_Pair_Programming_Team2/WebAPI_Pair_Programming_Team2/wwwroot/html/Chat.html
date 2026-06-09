@@ -6,13 +6,14 @@
     <title>チャット</title>
     <link rel="stylesheet" href="../css/Style.css">
 </head>
+
 <body>
 
     <!-- /* チャット */ -->
     <div class="chat-container">
         <header class="chat-header">
             <div class="chat-title">全体チャット</div>
-            <button id="logoutButton">ログアウト</button>
+            <button id="logoutButton" class="logout-button">ログアウト</button>
         </header>
 
         <main id="chatMessages" class="chat-messages">
@@ -33,8 +34,11 @@
         </main>
 
         <footer class="chat-input-area">
-            <input id="messageInput" type="text" placeholder="メッセージを入力">
-            <button id="sendButton">送信</button>
+            <textarea id="messageInput"
+                      class="message-input"
+                      placeholder="メッセージを入力"></textarea>
+
+            <button id="sendButton" class="send-button">送信</button>
         </footer>
     </div>
 
