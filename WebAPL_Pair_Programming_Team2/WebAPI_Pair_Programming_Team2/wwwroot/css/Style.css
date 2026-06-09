@@ -1,7 +1,128 @@
-﻿body {
+﻿/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+/*ユーザー登録画面*/
+/*ログイン画面*/
+/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Meiryo", sans-serif;
+}
+
+.auth-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dff7e8, #f7f8fa);
+}
+
+.auth-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f8f4d;
+    text-decoration: none;
+}
+
+.auth-container {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 36px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+    .auth-card h1 {
+        margin: 0;
+        font-size: 30px;
+        color: #222;
+    }
+
+.auth-subtitle {
+    margin: 8px 0 28px;
+    color: #777;
+}
+
+.auth-input {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 16px;
+    padding: 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    font-size: 15px;
+    outline: none;
+}
+
+    .auth-input:focus {
+        border-color: #1f8f4d;
+        box-shadow: 0 0 0 3px rgba(31, 143, 77, 0.12);
+    }
+
+.primary-button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 14px;
+    background: #1f8f4d;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+    .primary-button:hover {
+        background: #187a40;
+    }
+
+.link-button {
+    width: 100%;
+    margin-top: 14px;
+    border: none;
+    background: transparent;
+    color: #1f8f4d;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.error-message {
+    margin-top: 16px;
+    color: #d93025;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+/*ユーザー登録画面*/
+/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
+
+.register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+
+/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
 /*チャット画面*/
+/*＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝*/
 .chat-container {
     width: 420px;
     height: 700px;
@@ -63,3 +184,61 @@
     padding: 10px;
     border-top: 1px solid #ddd;
 }
+
+.logout-button {
+    border: none;
+    background: #f1f3f5;
+    color: #444;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+    .logout-button:hover {
+        background: #e2e6ea;
+    }
+
+.chat-input-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 14px;
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.message-input {
+    flex: 1;
+    min-height: 44px;
+    max-height: 120px;
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    resize: none;
+    overflow-y: auto;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+    .message-input:focus {
+        border-color: #1f8f4d;
+        background: #ffffff;
+        box-shadow: 0 0 0 3px rgba(31, 143, 77, 0.12);
+    }
+
+.send-button {
+    height: 44px;
+    min-width: 72px;
+    border: none;
+    border-radius: 999px;
+    background: #1f8f4d;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+    .send-button:hover {
+        background: #187a40;
+    }

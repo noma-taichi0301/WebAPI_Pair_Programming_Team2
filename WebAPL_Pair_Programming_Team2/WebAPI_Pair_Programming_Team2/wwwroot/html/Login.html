@@ -7,29 +7,35 @@
     <link rel="stylesheet" href="../css/Style.css">
 </head>
 
-<body>
+<body class="auth-body">
+
     <!-- /* ヘッダー */ -->
-    <header>
+    <header class="auth-header">
         <a href="#" class="logo">NomaChat</a>
     </header>
 
-    <!-- /* ログインフォーム */ -->
-    <div class="login-form">
-        <h1>ログイン</h1>
-        <input id="userName" placeholder="ユーザー名">
-        <input id="password" type="password" placeholder="パスワード">
-        <button id="loginButton">ログイン</button>
-    </div>
+    <main class="auth-container">
+        <section class="auth-card">
+            <!-- /* ログインフォーム */ -->
+            <h1>ログイン</h1>
+            <p class="auth-subtitle">NomaChatへようこそ</p>
+            <input id="userName" class="auth-input" placeholder="ユーザー名">
+            <input id="password" class="auth-input" type="password" placeholder="パスワード">
+            <button id="loginButton" class="primary-button">ログイン</button>
 
-    <!-- /* ユーザー登録画面遷移ボタン */ -->
-    <button onclick="location.href='AddUser.html'">ユーザー登録</button>
-    
-    <!-- /* エラー表示メッセージ */ -->
-    <p id="loginErrorMessage"></p>
+            <!-- /* ユーザー登録画面遷移ボタン */ -->
+            <button class="link-button" onclick="location.href='AddUser.html'">
+                新規登録はこちら
+            </button>
+
+            <!-- /* エラー表示メッセージ */ -->
+            <p id="errorMessage" class="error-message"></p>
+        </section>
+    </main>
 
     <!-- /* JS */ -->
     <script src="../js/Login.js"></script>
-
 </body>
+
 </html>
 
