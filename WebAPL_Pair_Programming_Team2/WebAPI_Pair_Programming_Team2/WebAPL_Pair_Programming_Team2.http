@@ -1,0 +1,6 @@
+@WebAPL_Pair_Programming_Team2_HostAddress = http://localhost:5265
+
+GET {{WebAPL_Pair_Programming_Team2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
