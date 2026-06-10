@@ -86,7 +86,7 @@ if (!localStorage.getItem("userId")) {
     loadChats();
 
     // 1秒ごとに更新
-    setInterval(loadChats, 1000);
+    setInterval(loadChats, 5000);
 
 
     //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
