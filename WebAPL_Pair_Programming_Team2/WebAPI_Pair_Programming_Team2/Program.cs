@@ -161,19 +161,19 @@ namespace WebAPL_Pair_Programming_Team2
         public IActionResult GetMessages()
         {
             _logger.LogInformation($"GETリクエスト(チャット)を受け取りました");
-            Console.WriteLine("GETリクエストを受け取りました");
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     var sql = "SELECT ChatID, UserName, Message, CreatedAt FROM Chats ORDER BY CreatedAt ASC";
                     IEnumerable<Chat> messageList = connection.Query<Chat>(sql);
+                    _logger.LogInformation($"通信成功：メッセージリストをクライアントに送信します。");
                     return Ok(messageList);
                 }
             }
             catch (System.Exception ex)
             {
-                Console.WriteLine("履歴取得失敗");
+                _logger.LogWarning($"通信失敗：例外エラー");
                 return StatusCode(500, new { success = false, message = $"チャット履歴の取得に失敗しました: {ex.Message}" });
             }
         }
