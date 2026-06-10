@@ -1,31 +1,57 @@
 [
   {
-    "ContainingType": "WebAPL_Pair_Programming_Team2.AddUserController",
-    "Method": "Login",
-    "RelativePath": "api/AddUser",
+    "ContainingType": "WebAPL_Pair_Programming_Team2.PostChatController",
+    "Method": "Chat",
+    "RelativePath": "api/chats",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "WebAPL_Pair_Programming_Team2.AddUserController\u002BLoginInfo",
+        "Type": "WebAPL_Pair_Programming_Team2.Chat",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebAPL_Pair_Programming_Team2.RegisterController",
-    "Method": "RegisterUser",
-    "RelativePath": "api/Register",
+    "ContainingType": "WebAPL_Pair_Programming_Team2.GetChatController",
+    "Method": "GetMessages",
+    "RelativePath": "api/chats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPL_Pair_Programming_Team2.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "WebAPL_Pair_Programming_Team2.RegisterRequest",
+        "Type": "WebAPL_Pair_Programming_Team2.LoginController\u002BLoginInfo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPL_Pair_Programming_Team2.AddUserController",
+    "Method": "AddUser",
+    "RelativePath": "api/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebAPL_Pair_Programming_Team2.User",
         "IsRequired": true
       }
     ],

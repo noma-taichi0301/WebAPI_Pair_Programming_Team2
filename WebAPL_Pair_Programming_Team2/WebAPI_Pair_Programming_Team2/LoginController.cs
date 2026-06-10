@@ -1,21 +1,31 @@
 ﻿using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Dapper;
-using Microsoft.Data.Sqlite;
+using Microsoft.Data.SqlClient; 
 
 namespace WebAPL_Pair_Programming_Team2
 {
     [ApiController]
     [Route("api/login")]
-    public class AddUserController : ControllerBase
+    public class LoginController : ControllerBase
     {
-        private readonly string _connectionString = "Data Source=users.db";
+        //ログの初期設定
+        private readonly ILogger<LoginController> _logger;
+        public LoginController(ILogger<LoginController> logger)
+        {
+            _logger = logger;
+        }
+
+        //DBアドレス指定
+        private readonly string _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
 
         [HttpPost]
         public IActionResult Login([FromBody] LoginInfo request)
         {
+            _logger.LogInformation($"POSTリクエスト(ログイン)を受け取りました");
             if (string.IsNullOrEmpty(request.UserName) || string.IsNullOrEmpty(request.Password))
             {
+                _logger.LogWarning($"ログイン失敗: ユーザ名またはパスワードがNullになっています");
                 return BadRequest(new
                 {
                     success = false,
@@ -24,10 +34,10 @@ namespace WebAPL_Pair_Programming_Team2
             }
             try
             {
-                // データベース（Dapper）でユーザーを探す
-                using (var connection = new SqliteConnection(_connectionString))
+                using (var connection = new SqlConnection(_connectionString))
                 {
-                    var sql = "SELECT COUNT(1) FROM Users WHERE Username = @Username AND Password = @Password";
+                    Console.WriteLine("ユーザを検索します");
+                    var sql = "SELECT COUNT(1) FROM Users WHERE UserName = @UserName AND Password = @Password";
                     int count = connection.QuerySingle<int>(sql, new
                     {
                         UserName = request.UserName,
@@ -36,7 +46,7 @@ namespace WebAPL_Pair_Programming_Team2
 
                     if (count > 0)
                     {
-                        // Ok() を使うと、自動的に「ステータスコード 200」になります
+                        _logger.LogInformation($"ログインに成功しました。UserName={request.UserName}");
                         return Ok(new
                         {
                             success = true,
@@ -46,7 +56,8 @@ namespace WebAPL_Pair_Programming_Team2
                     }
                     else
                     {
-                        return BadRequest(new
+                        _logger.LogWarning($"ログイン失敗: ユーザ名またはパスワードが間違っています。");
+                        return Unauthorized(new
                         {
                             success = false,
                             message = "ユーザー名またはパスワードが間違っています。"
@@ -56,16 +67,15 @@ namespace WebAPL_Pair_Programming_Team2
             }
             catch (System.Exception ex)
             {
+                // 💡 コンソールにエラーの生メッセージ（原因）を表示するようにして、デバッグしやすくしました
+                Console.WriteLine($"予期せぬエラーを検出: {ex.Message}");
                 return StatusCode(500, new
                 {
                     success = false,
                     message = "サーバー側で予期せぬエラーが発生しました。時間を置いてやり直してください。"
                 });
             }
-
-
         }
-
 
         public class LoginInfo
         {
@@ -73,7 +83,6 @@ namespace WebAPL_Pair_Programming_Team2
             public string Password { get; set; }
         }
     }
-    public class LoginController
-    {
-    }
+    
+
 }
