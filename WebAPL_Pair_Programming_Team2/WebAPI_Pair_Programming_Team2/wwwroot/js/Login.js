@@ -49,12 +49,9 @@ document.getElementById("loginButton").addEventListener("click", async () => {
         if (response.status === 200) {
 
             console.info("ログイン成功");
-            //レスポンスをJSONに変換
-            const loginUser = await response.json();
 
             //ブラウザにデータを保存してチャット画面に遷移
-            localStorage.setItem("userId", loginUser.userId);
-            localStorage.setItem("userName", loginUser.userName);
+            localStorage.setItem("userName", userName);
             window.location.href = "Chat.html";
         }
         else if (response.status === 400){
