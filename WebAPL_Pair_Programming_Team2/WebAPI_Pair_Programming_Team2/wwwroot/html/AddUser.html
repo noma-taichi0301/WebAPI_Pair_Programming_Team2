@@ -15,25 +15,26 @@
     </header>
 
     <!-- /* 登録フォーム */ -->
-    <div class="register-form">
-        <h1>ユーザー新規登録</h1>
-        <p class="auth-subtitle">アカウントを作成してください</p>
+    <main class="auth-container">
+        <div class="register-form">
+            <h1>ユーザー新規登録</h1>
+            <p class="auth-subtitle">アカウントを作成してください</p>
 
-        <input id="addUserName" class="auth-input" placeholder="ユーザー名">
-        <input id="addPassword" class="auth-input" type="password" placeholder="パスワード">
+            <input id="addUserName" class="auth-input" placeholder="ユーザー名">
+            <input id="addPassword" class="auth-input" type="password" placeholder="パスワード">
 
-        <button id="addUserButton" class="primary-button">新規登録</button>
-        <!-- /* ログイン画面に戻るボタン */ -->
-        <button class="link-button" onclick="location.href='Login.html'">
-            ログイン画面に戻る
-        </button>
-        <!-- /* エラー表示メッセージ */ -->
-        <p id="addErrorMessage" class="error-message"></p>
-    </div>
+            <button id="addUserButton" class="primary-button">新規登録</button>
+            <!-- /* ログイン画面に戻るボタン */ -->
+            <button class="link-button" onclick="location.href='Login.html'">
+                ログイン画面に戻る
+            </button>
+            <!-- /* エラー表示メッセージ */ -->
+            <p id="addErrorMessage" class="error-message"></p>
+        </div>
+    </main>
 
-
-    <!-- /* JS */ -->
-    <script src="../js/AddUser.js"></script>
+        <!-- /* JS */ -->
+        <script src="../js/AddUser.js"></script>
 
 </body>
 
