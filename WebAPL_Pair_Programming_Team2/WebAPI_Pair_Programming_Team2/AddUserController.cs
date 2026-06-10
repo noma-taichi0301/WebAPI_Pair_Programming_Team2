@@ -91,11 +91,11 @@ namespace WebAPL_Pair_Programming_Team2
             //例外処理
             catch (System.Exception ex)
             {
-                _logger.LogError(ex, "ユーザー登録中にサーバーエラーが発生しました。");
+                _logger.LogWarning($"通信失敗：例外エラー");
                 return StatusCode(500, new { success = false, message = "サーバーエラーが発生しました。" });
             }
         }
-    } 
+    }
 
 
 

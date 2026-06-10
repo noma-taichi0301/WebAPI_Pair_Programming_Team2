@@ -74,11 +74,8 @@ namespace WebAPL_Pair_Programming_Team2
             catch (System.Exception ex)
             {
                 //例外エラー
-                return StatusCode(500, new
-                {
-                    success = false,
-                    message = "サーバー側で予期せぬエラーが発生しました。時間を置いてやり直してください。"
-                });
+                _logger.LogWarning($"通信失敗：例外エラー");
+                return StatusCode(500, new{success = false,message = "サーバーエラーが発生しました。" });
             }
         }
 
