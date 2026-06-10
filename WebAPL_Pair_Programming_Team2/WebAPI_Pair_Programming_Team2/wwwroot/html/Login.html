@@ -19,8 +19,12 @@
             <!-- /* ログインフォーム */ -->
             <h1>ログイン</h1>
             <p class="auth-subtitle">NomaChatへようこそ</p>
-            <input id="userName" class="auth-input" placeholder="ユーザー名">
-            <input id="password" class="auth-input" type="password" placeholder="パスワード">
+
+            <!-- /* エラー表示メッセージ */ -->
+            <p id="errorMessage" class="error-message"></p>
+
+            <input id="userName" class="auth-input" maxlength="30" placeholder="ユーザー名">
+            <input id="password" class="auth-input" maxlength="30" type="password" placeholder="パスワード">
             <button id="loginButton" class="primary-button">ログイン</button>
 
             <!-- /* ユーザー登録画面遷移ボタン */ -->
@@ -28,8 +32,7 @@
                 新規登録はこちら
             </button>
 
-            <!-- /* エラー表示メッセージ */ -->
-            <p id="errorMessage" class="error-message"></p>
+
         </section>
     </main>
 

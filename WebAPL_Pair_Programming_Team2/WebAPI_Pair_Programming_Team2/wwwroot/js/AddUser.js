@@ -8,25 +8,33 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
     const password = document.getElementById("addPassword").value;
 
     //入力チェック
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.textContent = "";
+    errorMessage.style.display = "none";
+
+    let errors = [];
+
     if (userName === "") {
-        alert("ユーザー名を入力してください");
-        return;
+        errors.push("ユーザー名を入力してください");
     }
 
-    if (userName.length > 30 ) {
-        alert("ユーザー名は30文字以下にしてください");
-        return;
+    if (userName.length > 30) {
+        errors.push("ユーザー名は30文字以下にしてください");
     }
 
     if (password === "") {
-        alert("パスワードを入力してください");
+        errors.push("パスワードを入力してください");
+    }else if (password.length > 30 || password.length < 8) {
+        errors.push("パスワードは8文字以上、30文字以下にしてください");
+    }
+
+    if (errors.length > 0) {
+        errorMessage.innerHTML = errors.join("<br>");
+        errorMessage.style.display = "block";
         return;
     }
 
-    if (password.length > 30 || password.length < 8) {
-        alert("パスワードは8文字以上、30文字以下にしてください");
-        return;
-    }
+
 
 
     try {
@@ -52,10 +60,14 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
             window.location.href = "Login.html";
         }
         else if (response.status === 400) {
-            alert("入力値が不正です");
+            errors.push("入力値が不正です");
+            errorMessage.innerHTML = errors.join("<br>");
+            errorMessage.style.display = "block";
         }
         else if (response.status === 409) {
-            alert("ユーザー名が重複しています。別の名前にしてください。");
+            errors.push("ユーザー名が重複しています。<br>別の名前にしてください。");
+            errorMessage.innerHTML = errors.join("<br>");
+            errorMessage.style.display = "block";
         }
         else if (response.status === 500) {
             alert("サーバーエラー");

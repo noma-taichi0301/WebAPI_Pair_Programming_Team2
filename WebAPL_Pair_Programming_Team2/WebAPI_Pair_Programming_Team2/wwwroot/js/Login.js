@@ -8,13 +8,23 @@ document.getElementById("loginButton").addEventListener("click", async () => {
     const password = document.getElementById("password").value;
 
     //入力チェック
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.textContent = "";
+    errorMessage.style.display = "none";
+
+    let errors = [];
+
     if (userName === "") {
-        alert("ユーザー名を入力してください");
-        return;
+        errors.push("ユーザー名を入力してください");
     }
 
     if (password === "") {
-        alert("パスワードを入力してください");
+        errors.push("パスワードを入力してください");
+    }
+
+    if (errors.length > 0) {
+        errorMessage.innerHTML = errors.join("<br>");
+        errorMessage.style.display = "block";
         return;
     }
 
@@ -48,10 +58,14 @@ document.getElementById("loginButton").addEventListener("click", async () => {
             window.location.href = "Chat.html";
         }
         else if (response.status === 400){
-            alert("入力値が不正です");
+            errors.push("入力値が不正です");
+            errorMessage.innerHTML = errors.join("<br>");
+            errorMessage.style.display = "block";
         }
         else if (response.status === 401) {
-            alert("ユーザー名またはパスワードが正しくありません");
+            errors.push("ユーザー名またはパスワードが正しくありません");
+            errorMessage.innerHTML = errors.join("<br>");
+            errorMessage.style.display = "block";
         }
         else if (response.status === 500){
             alert("サーバーエラー");
