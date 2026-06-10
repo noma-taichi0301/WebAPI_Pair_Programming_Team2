@@ -32,7 +32,7 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
     try {
 
         //送信データ整形
-        const AddUserData = {
+        const addUserData = {
             userName: userName,
             password: password
         };
@@ -41,7 +41,7 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
         const response = await fetch("/api/users", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(AddUserData)
+            body: JSON.stringify(addUserData)
         });
 
         //レスポンス処理
@@ -53,6 +53,9 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
         }
         else if (response.status === 400) {
             alert("入力値が不正です");
+        }
+        else if (response.status === 409) {
+            alert("ユーザー名が重複しています。別の名前にしてください。");
         }
         else if (response.status === 500) {
             alert("サーバーエラー");

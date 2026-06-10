@@ -37,8 +37,14 @@ document.getElementById("loginButton").addEventListener("click", async () => {
         //レスポンス処理
         //成功したらログインユーザー確定して、チャット画面へ
         if (response.status === 200) {
-            const loginUser = await response.json();
+
             console.info("ログイン成功");
+            //レスポンスをJSONに変換
+            const loginUser = await response.json();
+
+            //ブラウザにデータを保存してチャット画面に遷移
+            localStorage.setItem("userId", loginUser.userId);
+            localStorage.setItem("userName", loginUser.userName);
             window.location.href = "Chat.html";
         }
         else if (response.status === 400){
@@ -53,7 +59,7 @@ document.getElementById("loginButton").addEventListener("click", async () => {
 
     }
     catch (error) {
-        console.error(error);
+        console.error("ログイン通信失敗", error);
         alert("通信に失敗しました");
     }
 

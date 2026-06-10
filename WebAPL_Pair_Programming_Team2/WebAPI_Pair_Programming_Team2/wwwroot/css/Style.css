@@ -178,13 +178,6 @@ body {
     color: #777;
 }
 
-.chat-input-area {
-    display: flex;
-    gap: 8px;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-}
-
 .logout-button {
     border: none;
     background: #f1f3f5;
@@ -210,6 +203,7 @@ body {
 
 .message-input {
     flex: 1;
+    height: 44px;
     min-height: 44px;
     max-height: 120px;
     padding: 10px 16px;
