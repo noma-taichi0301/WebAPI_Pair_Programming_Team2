@@ -134,12 +134,7 @@
             "format": "int32"
           },
           "userName": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
-            "format": "int32"
+            "type": "string"
           },
           "message": {
             "type": "string"

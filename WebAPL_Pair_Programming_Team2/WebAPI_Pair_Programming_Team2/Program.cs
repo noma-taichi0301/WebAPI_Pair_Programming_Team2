@@ -5,9 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using System;
 using Microsoft.AspNetCore.Identity.Data;
-
+using NLog;
+using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Host.UseNLog();
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -69,7 +74,7 @@ public class User
 public class Chat
 {
     public int ChatID { get; set; }
-    public int UserName { get; set; }
+    public string UserName { get; set; }
     public string Message { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 }
@@ -81,6 +86,7 @@ namespace WebAPL_Pair_Programming_Team2
     [Route("api/chats")]
     public class PostChatController : ControllerBase
     {
+        //ログの初期設定
         private readonly ILogger<AddUserController> _logger;
         public PostChatController(ILogger<AddUserController> logger)
         {

@@ -15,8 +15,8 @@
       "RelativeMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|solutionrelative:webapi_pair_programming_team2\\addusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|c:\\users\\tnoma\\desktop\\webapi_pair_programming_team2\\webapl_pair_programming_team2\\webapi_pair_programming_team2\\webapi_pair_programming_team2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|solutionrelative:webapi_pair_programming_team2\\webapi_pair_programming_team2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|c:\\users\\tnoma\\desktop\\webapi_pair_programming_team2\\webapl_pair_programming_team2\\webapi_pair_programming_team2\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5182C7DD-8042-12DF-670E-40FB2053D8ED}|WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj|solutionrelative:webapi_pair_programming_team2\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +31,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "WebAPI_Pair_Programming_Team2.csproj",
-              "DocumentMoniker": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj",
-              "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj",
-              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj",
-              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-10T02:55:39.11Z"
+              "Title": "NLog.config",
+              "DocumentMoniker": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\NLog.config",
+              "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\NLog.config",
+              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\NLog.config",
+              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\NLog.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-06-10T07:38:34.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -46,9 +47,9 @@
               "Title": "AddUserController.cs",
               "DocumentMoniker": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\AddUserController.cs",
               "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\AddUserController.cs",
-              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\AddUserController.cs",
-              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\AddUserController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAIwEsAAAAXAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\AddUserController.cs*",
+              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\AddUserController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-09T04:21:28.769Z",
               "EditorCaption": ""
@@ -59,9 +60,9 @@
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\LoginController.cs",
               "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\LoginController.cs",
-              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\LoginController.cs",
-              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\LoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAABBAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\LoginController.cs*",
+              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\LoginController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-10T00:06:27.545Z",
               "EditorCaption": ""
@@ -72,9 +73,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\Program.cs",
               "RelativeDocumentMoniker": "WebAPI_Pair_Programming_Team2\\Program.cs",
-              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\Program.cs",
-              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEUAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\tnoma\\Desktop\\WebAPI_Pair_Programming_Team2\\WebAPL_Pair_Programming_Team2\\WebAPI_Pair_Programming_Team2\\Program.cs*",
+              "RelativeToolTip": "WebAPI_Pair_Programming_Team2\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-09T05:09:20.409Z",
               "EditorCaption": ""

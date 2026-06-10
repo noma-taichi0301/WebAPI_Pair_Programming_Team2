@@ -1,9 +1,12 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using NLog;
+using NLog.Web;
 
 namespace WebAPL_Pair_Programming_Team2
 {
+
     //ユーザ追加機能
     [ApiController]
     [Route("api/users")]
