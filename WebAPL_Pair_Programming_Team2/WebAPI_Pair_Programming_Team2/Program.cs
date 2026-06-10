@@ -1,8 +1,10 @@
-using System;
-using Microsoft.Data.Sqlite;
 using Dapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using System;
+using Microsoft.AspNetCore.Identity.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,15 +45,6 @@ app.MapControllers();
 
 app.Run();
 
-public class MainProgram
-{
-    static void Main(string[] args)
-    {
-      
-    }
-}
-
-
 
 
 //DB作成
@@ -79,4 +72,114 @@ public class Chat
     public int UserID { get; set; }
     public string Message { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
+}
+
+
+namespace WebAPL_Pair_Programming_Team2
+{
+    [ApiController]
+    [Route("api/chats")]
+    public class PostChatController : ControllerBase
+    {
+        private readonly ILogger<AddUserController> _logger;
+        public PostChatController(ILogger<AddUserController> logger)
+        {
+            _logger = logger;
+        }
+        private readonly string _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
+
+        [HttpPost]
+        public IActionResult Chat([FromBody] Chat request)
+        {
+            _logger.LogInformation($"POSTリクエスト(チャット)を受け取りました");
+            if (string.IsNullOrEmpty(request.Message))
+            {
+                _logger.LogWarning($"メッセージが空の状態でpostされました");
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "メッセージを入力してください"
+                });
+            }
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var insertSql = @"
+                    INSERT INTO Chats (UserName, Message, CreatedAt) 
+                    OUTPUT INSERTED.ChatID
+                    VALUES (@UserName, @Message, @CreatedAt);";
+
+                    int newChatID = connection.QuerySingle<int>(insertSql, new
+                    {
+                        UserName = request.UserName,
+                        Message = request.Message,
+                        CreatedAt = DateTime.Now
+                    });
+                    _logger.LogInformation($"チャット保存成功: Message={request.Message}, Id={newChatID}");
+
+                    return StatusCode(201, new
+                    {
+                        success = true,
+                        message = "チャットを送信しました。",
+                        masterId = newChatID
+                    });
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+                // 💡 コンソールにエラーの生メッセージ（原因）を表示するようにして、デバッグしやすくしました
+                Console.WriteLine($"予期せぬエラーを検出: {ex.Message}");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "サーバー側で予期せぬエラーが発生しました。時間を置いてやり直してください。"
+                });
+            }
+        }
+    }
+
+
+    [ApiController]
+    [Route("api/chats")]
+    public class GetChatController : ControllerBase
+    {
+        private readonly ILogger<AddUserController> _logger;
+        public GetChatController(ILogger<AddUserController> logger)
+        {
+            _logger = logger;
+        }
+        private readonly string _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
+
+        [HttpGet]
+        public IActionResult GetMessages()
+        {
+            _logger.LogInformation($"GETリクエスト(チャット)を受け取りました");
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    // 📝 JOINは不要！ Chatsテーブルからそのまま必要な4つのデータを全件取得します
+                    var sql = "SELECT ChatID, UserName, Message, CreatedAt FROM Chats ORDER BY CreatedAt ASC";
+
+                    // Dapperが、取得したUserNameをそのままChatクラスのUserNameに自動で代入してくれます
+                    IEnumerable<Chat> messageList = connection.Query<Chat>(sql);
+
+                    return Ok(messageList);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"チャット履歴の取得に失敗しました: {ex.Message}" });
+            }
+        }
+    }
+    public class Chat
+    {
+        public int ChatID { get; set; }
+        public string UserName { get; set; }
+        public string Message { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
 }

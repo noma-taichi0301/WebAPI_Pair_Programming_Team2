@@ -13,26 +13,26 @@
     }
   ],
   "paths": {
-    "/api/Register": {
+    "/api/users": {
       "post": {
         "tags": [
-          "Register"
+          "AddUser"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterRequest"
+                "$ref": "#/components/schemas/User"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterRequest"
+                "$ref": "#/components/schemas/User"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterRequest"
+                "$ref": "#/components/schemas/User"
               }
             }
           },
@@ -45,10 +45,10 @@
         }
       }
     },
-    "/api/AddUser": {
+    "/api/login": {
       "post": {
         "tags": [
-          "AddUser"
+          "Login"
         ],
         "requestBody": {
           "content": {
@@ -76,10 +76,75 @@
           }
         }
       }
+    },
+    "/api/chats": {
+      "post": {
+        "tags": [
+          "PostChat"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Chat"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Chat"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Chat"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "GetChat"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "Chat": {
+        "type": "object",
+        "properties": {
+          "chatID": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "LoginInfo": {
         "type": "object",
         "properties": {
@@ -91,7 +156,7 @@
           }
         }
       },
-      "RegisterRequest": {
+      "User": {
         "type": "object",
         "properties": {
           "userName": {
@@ -106,10 +171,16 @@
   },
   "tags": [
     {
-      "name": "Register"
+      "name": "AddUser"
     },
     {
-      "name": "AddUser"
+      "name": "Login"
+    },
+    {
+      "name": "PostChat"
+    },
+    {
+      "name": "GetChat"
     }
   ]
 }
