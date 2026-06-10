@@ -13,6 +13,38 @@
     }
   ],
   "paths": {
+    "/api/Register": {
+      "post": {
+        "tags": [
+          "Register"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/AddUser": {
       "post": {
         "tags": [
@@ -51,7 +83,18 @@
       "LoginInfo": {
         "type": "object",
         "properties": {
-          "username": {
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "userName": {
             "type": "string"
           },
           "password": {
@@ -62,6 +105,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Register"
+    },
     {
       "name": "AddUser"
     }
