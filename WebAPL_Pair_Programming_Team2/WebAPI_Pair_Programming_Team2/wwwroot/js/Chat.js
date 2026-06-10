@@ -2,15 +2,16 @@
 //未ログイン対策
 //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
-if (!localStorage.getItem("userId")) {
+if (!localStorage.getItem("userName")) {
 
     alert("ログインしてください");
     window.location.href = "Login.html";
 
 } else { 
 
-    //ストレージのUserIDを読出
-    const loginUserId = Number(localStorage.getItem("userId"));
+    //ストレージのUserNameを読出
+    const loginUserName = localStorage.getItem("userName") ?? "";
+    console.info(`ログイン成功 UserName=${loginUserName}`);
 
     //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     //チャット表示更新
@@ -19,38 +20,48 @@ if (!localStorage.getItem("userId")) {
     //チャット吹き出し作成
     function addMessage(chat) {
 
-        //チャット表示エリア取得
+        //チャットエリア取得
         const chatArea = document.getElementById("chatMessages");
 
         //メッセージ1件分のdiv作成
         const row = document.createElement("div");
 
         //自分か相手か判定
-        if (chat.userId === loginUserId) {
+        if (chat.userName === loginUserName) {
             row.className = "message-row mine";
         } else {
             row.className = "message-row other";
         }
 
         //チャット用HTML組み立て
+        const dateTime = new Date(chat.createdAt)
+            .toLocaleString("ja-JP", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+
         row.innerHTML = `
-        <div class="message-bubble">
-            <div class="message-name">${chat.userName}</div>
-            <div class="message-text">${chat.message}</div>
-            <div class="message-time">${chat.createdAt}</div>
-        </div>
-    `;
+            <div class="message-bubble">
+                <div class="message-name">${chat.userName}</div>
+                <div class="message-text">${chat.message}</div>
+                <div class="message-time">${dateTime}</div>
+            </div>
+        `;
 
         //チャット欄に追加
         chatArea.appendChild(row);
-
-        // 最新メッセージへスクロール
-        chatArea.scrollTop = chatArea.scrollHeight;
 
     }
 
     //チャット更新
     async function loadChats() {
+
+        //チャットエリア取得
+        const chatArea = document.getElementById("chatMessages");
+
         try {
 
             //GET送信
@@ -65,17 +76,12 @@ if (!localStorage.getItem("userId")) {
             //レスポンスのチャット全件データをJSON変換
             const chats = await response.json();
 
-            //チャットエリア取得
             const chatArea = document.getElementById("chatMessages");
-
             //既存メッセージ削除
             chatArea.innerHTML = "";
-
             //チャット全件描画
-            chats.forEach(chat => { addMessage(chat); });
+            chats.forEach(chat => {addMessage(chat);});
 
-            //スクロール最下部に移動
-            chatArea.scrollTop = chatArea.scrollHeight;
         }
         catch (error) {
             console.error("チャット取得通信失敗", error);
@@ -100,6 +106,9 @@ if (!localStorage.getItem("userId")) {
         //入力取得
         const message = document.getElementById("messageInput").value;
 
+        //チャットエリア取得
+        const chatArea = document.getElementById("chatMessages");
+
         //メッセージが空白・Nullであれば終了
         if (message.trim() === "") {
             alert("メッセージを入力してください");
@@ -109,7 +118,7 @@ if (!localStorage.getItem("userId")) {
         try {
             //送信データ整形
             const sendMessageData = {
-                userId: loginUserId,
+                userName: loginUserName,
                 message: message
             };
 
@@ -129,6 +138,11 @@ if (!localStorage.getItem("userId")) {
 
                 //チャットリロード
                 loadChats();
+
+                // 最新メッセージへスクロール
+                const chatArea = document.getElementById("chatMessages");
+                chatArea.scrollTop = chatArea.scrollHeight;
+
             }
             else if (response.status === 400) {
                 alert("入力値が不正で送信できませんでした");
