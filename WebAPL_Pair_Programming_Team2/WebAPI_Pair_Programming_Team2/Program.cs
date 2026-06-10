@@ -69,7 +69,7 @@ public class User
 public class Chat
 {
     public int ChatID { get; set; }
-    public int UserID { get; set; }
+    public int UserName { get; set; }
     public string Message { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 }
@@ -129,7 +129,6 @@ namespace WebAPL_Pair_Programming_Team2
             }
             catch (System.Exception ex)
             {
-                // 💡 コンソールにエラーの生メッセージ（原因）を表示するようにして、デバッグしやすくしました
                 Console.WriteLine($"予期せぬエラーを検出: {ex.Message}");
                 return StatusCode(500, new
                 {
@@ -145,8 +144,8 @@ namespace WebAPL_Pair_Programming_Team2
     [Route("api/chats")]
     public class GetChatController : ControllerBase
     {
-        private readonly ILogger<AddUserController> _logger;
-        public GetChatController(ILogger<AddUserController> logger)
+        private readonly ILogger<GetChatController> _logger;
+        public GetChatController(ILogger<GetChatController> logger)
         {
             _logger = logger;
         }
@@ -156,30 +155,21 @@ namespace WebAPL_Pair_Programming_Team2
         public IActionResult GetMessages()
         {
             _logger.LogInformation($"GETリクエスト(チャット)を受け取りました");
+            Console.WriteLine("GETリクエストを受け取りました");
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    // 📝 JOINは不要！ Chatsテーブルからそのまま必要な4つのデータを全件取得します
                     var sql = "SELECT ChatID, UserName, Message, CreatedAt FROM Chats ORDER BY CreatedAt ASC";
-
-                    // Dapperが、取得したUserNameをそのままChatクラスのUserNameに自動で代入してくれます
                     IEnumerable<Chat> messageList = connection.Query<Chat>(sql);
-
                     return Ok(messageList);
                 }
             }
             catch (System.Exception ex)
             {
+                Console.WriteLine("履歴取得失敗");
                 return StatusCode(500, new { success = false, message = $"チャット履歴の取得に失敗しました: {ex.Message}" });
             }
         }
-    }
-    public class Chat
-    {
-        public int ChatID { get; set; }
-        public string UserName { get; set; }
-        public string Message { get; set; }
-        public DateTime CreatedAt { get; set; }
     }
 }
