@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.Data;
+﻿using Dapper;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using Dapper;
-using Microsoft.Data.SqlClient; 
+using Microsoft.Data.SqlClient;
+using NLog;
+using NLog.Web;
+
+
 
 namespace WebAPL_Pair_Programming_Team2
 {
@@ -36,7 +40,7 @@ namespace WebAPL_Pair_Programming_Team2
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    Console.WriteLine("ユーザを検索します");
+                    //ユーザ名, パスワードの一致チェック
                     var sql = "SELECT COUNT(1) FROM Users WHERE UserName = @UserName AND Password = @Password";
                     int count = connection.QuerySingle<int>(sql, new
                     {
@@ -44,6 +48,7 @@ namespace WebAPL_Pair_Programming_Team2
                         Password = request.Password
                     });
 
+                    //ユーザ名, パスワードが両方とも一致している行がある場合
                     if (count > 0)
                     {
                         _logger.LogInformation($"ログインに成功しました。UserName={request.UserName}");
@@ -54,6 +59,7 @@ namespace WebAPL_Pair_Programming_Team2
                             username = request.UserName
                         });
                     }
+                    //ユーザ名, パスワードが一致する行がない場合
                     else
                     {
                         _logger.LogWarning($"ログイン失敗: ユーザ名またはパスワードが間違っています。");
@@ -67,8 +73,7 @@ namespace WebAPL_Pair_Programming_Team2
             }
             catch (System.Exception ex)
             {
-                // 💡 コンソールにエラーの生メッセージ（原因）を表示するようにして、デバッグしやすくしました
-                Console.WriteLine($"予期せぬエラーを検出: {ex.Message}");
+                //例外エラー
                 return StatusCode(500, new
                 {
                     success = false,
