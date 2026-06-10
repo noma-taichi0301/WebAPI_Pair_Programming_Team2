@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "WebAPL_Pair_Programming_Team2.Chat",
+        "Type": "Chat",
         "IsRequired": true
       }
     ],
