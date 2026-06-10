@@ -1,4 +1,0 @@
-カレントディレクトリをcsprojのある階層にして、
-コマンドプロンプトなどで下記を実行してください
-
-dotnet ef migrations add InitialCreate

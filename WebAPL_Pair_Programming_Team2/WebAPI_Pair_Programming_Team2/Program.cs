@@ -19,7 +19,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<UsersDbContext>();
-    db.Database.Migrate();
+    db.Database.EnsureCreated();
 }
 // Add services to the container.
 
@@ -63,6 +63,7 @@ public class UsersDbContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Chat> Chats { get; set; }
 }
 
 
@@ -70,5 +71,12 @@ public class User
 {
     public int UserID { get; set; }
     public string UserName { get; set; }
-    public int Password { get; set; }
+    public string Password { get; set; }
+}
+public class Chat
+{
+    public int ChatID { get; set; }
+    public int UserID { get; set; }
+    public string Message { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }
