@@ -5,10 +5,10 @@ wwwroot\html\Login.html
 wwwroot\html\Chat.html
 wwwroot\html\AddUser.html
 wwwroot\css\Style.css
-C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\css\Style.css
-C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\html\AddUser.html
-C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\html\Chat.html
-C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\html\Login.html
-C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\js\AddUser.js
-C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\js\Chat.js
 C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\js\Login.js
+C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\js\Chat.js
+C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\js\AddUser.js
+C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\html\Login.html
+C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\html\Chat.html
+C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\html\AddUser.html
+C:\Users\tnoma\Desktop\WebAPI_Pair_Programming_Team2\WebAPL_Pair_Programming_Team2\WebAPI_Pair_Programming_Team2\wwwroot\css\Style.css
