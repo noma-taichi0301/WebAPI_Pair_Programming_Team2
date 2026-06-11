@@ -80,6 +80,13 @@ public class Chat
 }
 
 
+
+
+public static class Constants
+{
+    public const string _connectionString = "Server= 172.16.7.24\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
+}
+
 namespace WebAPL_Pair_Programming_Team2
 {
     [ApiController]
@@ -92,7 +99,6 @@ namespace WebAPL_Pair_Programming_Team2
         {
             _logger = logger;
         }
-        private readonly string _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
 
         [HttpPost]
         public IActionResult Chat([FromBody] Chat request)
@@ -120,7 +126,7 @@ namespace WebAPL_Pair_Programming_Team2
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(Constants._connectionString))
                 {
                     var insertSql = @"
                     INSERT INTO Chats (UserName, Message, CreatedAt) 
@@ -166,7 +172,6 @@ namespace WebAPL_Pair_Programming_Team2
         {
             _logger = logger;
         }
-        private readonly string _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
 
         [HttpGet]
         public IActionResult GetMessages()
@@ -174,7 +179,7 @@ namespace WebAPL_Pair_Programming_Team2
             _logger.LogInformation($"GETリクエスト(チャット)を受け取りました");
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(Constants._connectionString))
                 {
                     var sql = "SELECT ChatID, UserName, Message, CreatedAt FROM Chats ORDER BY CreatedAt ASC";
                     IEnumerable<Chat> messageList = connection.Query<Chat>(sql);
