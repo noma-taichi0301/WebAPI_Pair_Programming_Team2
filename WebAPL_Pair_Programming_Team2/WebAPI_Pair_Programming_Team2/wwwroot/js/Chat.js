@@ -57,6 +57,7 @@ if (!localStorage.getItem("userName")) {
     }
 
     //チャット更新
+    let isFirstLoad = true;
     async function loadChats() {
 
         //チャットエリア取得
@@ -73,20 +74,27 @@ if (!localStorage.getItem("userName")) {
                 return;
             }
 
-            //レスポンスのチャット全件データをJSON変換
             const chats = await response.json();
-
             const chatArea = document.getElementById("chatMessages");
+
             //既存メッセージ削除
             chatArea.innerHTML = "";
+
             //チャット全件描画
-            chats.forEach(chat => {addMessage(chat);});
+            chats.forEach(chat => { addMessage(chat); });
+
+            //最初だけスクロール
+            if (isFirstLoad) {
+                chatArea.scrollTop = chatArea.scrollHeight;
+                isFirstLoad = false;
+            }
 
         }
         catch (error) {
             console.error("チャット取得通信失敗", error);
         }
     }
+
 
     // 初回表示
     loadChats();
@@ -130,6 +138,7 @@ if (!localStorage.getItem("userName")) {
             });
 
             if (response.status === 201) {
+
                 console.info("チャット送信成功");
 
                 //テキストボックス空白にして調整
@@ -137,12 +146,11 @@ if (!localStorage.getItem("userName")) {
                 document.getElementById("messageInput").style.height = "44px";
 
                 //チャットリロード
-                loadChats();
+                await loadChats();
 
                 // 最新メッセージへスクロール
                 const chatArea = document.getElementById("chatMessages");
                 chatArea.scrollTop = chatArea.scrollHeight;
-
             }
             else if (response.status === 400) {
                 alert("入力値が不正で送信できませんでした");
