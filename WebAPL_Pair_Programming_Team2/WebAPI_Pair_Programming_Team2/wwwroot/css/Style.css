@@ -161,12 +161,17 @@ body {
     .message-row.other {
         justify-content: flex-start;
     }
+.message-text {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
 
 .message-bubble {
     max-width: 70%;
     padding: 8px 12px;
     border-radius: 10px;
     background: white;
+    overflow: hidden;
 }
 
 .message-row.mine .message-bubble {
