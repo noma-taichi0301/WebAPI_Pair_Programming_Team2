@@ -20,9 +20,6 @@ namespace WebAPL_Pair_Programming_Team2
             _logger = logger;
         }
 
-        //DBアドレス指定
-        private readonly string _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
-
         [HttpPost]
         public IActionResult Login([FromBody] LoginInfo request)
         {
@@ -38,7 +35,7 @@ namespace WebAPL_Pair_Programming_Team2
             }
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(Constants._connectionString))
                 {
                     //ユーザ名, パスワードの一致チェック
                     var sql = "SELECT COUNT(1) FROM Users WHERE UserName = @UserName AND Password = @Password";

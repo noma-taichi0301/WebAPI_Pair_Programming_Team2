@@ -19,9 +19,6 @@ namespace WebAPL_Pair_Programming_Team2
             _logger = logger;
         }
 
-        //DBアドレス指定
-        private readonly string _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
-
         [HttpPost]
         public IActionResult AddUser([FromBody] User request)
         {
@@ -48,7 +45,7 @@ namespace WebAPL_Pair_Programming_Team2
 
             try
             {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(Constants._connectionString))
                 {
                     // 重複チェックの処理
                     var checkSql = "SELECT COUNT(1) FROM Users WHERE UserName = @UserName";
