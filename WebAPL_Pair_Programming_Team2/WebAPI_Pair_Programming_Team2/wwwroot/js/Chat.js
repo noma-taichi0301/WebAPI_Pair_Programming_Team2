@@ -66,7 +66,7 @@ if (!localStorage.getItem("userName")) {
         try {
 
             //GET送信
-            const response = await fetch("/api/chats");
+            const response = await fetch("http://172.16.7.24:5265/api/chats");
 
             //取得に成功しなかったら終了
             if (response.status !== 200) {
@@ -131,7 +131,7 @@ if (!localStorage.getItem("userName")) {
             };
 
             //POST送信
-            const response = await fetch("/api/chats", {
+            const response = await fetch("http://172.16.7.24:5265/api/chats", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(sendMessageData)
