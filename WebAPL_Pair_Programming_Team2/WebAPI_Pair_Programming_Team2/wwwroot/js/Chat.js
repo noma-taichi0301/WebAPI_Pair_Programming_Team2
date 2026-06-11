@@ -67,6 +67,8 @@ if (!localStorage.getItem("userName")) {
 
             //GET送信
             const response = await fetch("http://172.16.7.24:5265/api/chats");
+            console.info("チャット取得開始");
+
 
             //取得に成功しなかったら終了
             if (response.status !== 200) {
@@ -76,6 +78,7 @@ if (!localStorage.getItem("userName")) {
 
             const chats = await response.json();
             const chatArea = document.getElementById("chatMessages");
+            console.info("チャット取得成功");
 
             //既存メッセージ削除
             chatArea.innerHTML = "";
@@ -94,7 +97,6 @@ if (!localStorage.getItem("userName")) {
             console.error("チャット取得通信失敗", error);
         }
     }
-
 
     // 初回表示
     loadChats();
@@ -119,6 +121,7 @@ if (!localStorage.getItem("userName")) {
 
         //メッセージが空白・Nullであれば終了
         if (message.trim() === "") {
+            console.warn("メッセージ未入力");
             alert("メッセージを入力してください");
             return;
         }
@@ -153,9 +156,11 @@ if (!localStorage.getItem("userName")) {
                 chatArea.scrollTop = chatArea.scrollHeight;
             }
             else if (response.status === 400) {
+                console.warn("入力値不正");
                 alert("入力値が不正で送信できませんでした");
             }
             else if (response.status === 500) {
+                console.warn("サーバーエラー");
                 alert("サーバーエラーで送信できませんでした");
             }
 

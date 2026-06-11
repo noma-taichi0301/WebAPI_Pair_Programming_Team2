@@ -31,10 +31,9 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
     if (errors.length > 0) {
         errorMessage.innerHTML = errors.join("<br>");
         errorMessage.style.display = "block";
+        console.info("新規登録不可");
         return;
     }
-
-
 
 
     try {
@@ -60,14 +59,18 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
             window.location.href = "Login.html";
         }
         else if (response.status === 400) {
+            console.warn("入力値不正");
             alert("入力値が不正です");
+
         }
         else if (response.status === 409) {
+            console.warn("ユーザー名重複");
             errors.push("ユーザー名が重複しています。<br>別の名前にしてください。");
             errorMessage.innerHTML = errors.join("<br>");
             errorMessage.style.display = "block";
         }
         else if (response.status === 500) {
+            console.warn("サーバーエラー");
             alert("サーバーエラー");
         }
 
