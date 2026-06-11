@@ -2,7 +2,6 @@ using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
 using System;
 using Microsoft.AspNetCore.Identity.Data;
 using NLog;
@@ -14,25 +13,30 @@ builder.Logging.ClearProviders();
 builder.Host.UseNLog();
 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowClient", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 builder.Services.AddDbContext<UsersDbContext>(options =>
-    options.UseSqlServer(
-        "Server=(localdb)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True"));
+    options.UseSqlServer(Constants._connectionString));
+
+builder.WebHost.UseUrls("http://0.0.0.0:5265");
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<UsersDbContext>();
-    db.Database.EnsureCreated();
-}
-// Add services to the container.
+//using (var scope = app.Services.CreateScope())
+//{
+//    var db = scope.ServiceProvider.GetRequiredService<UsersDbContext>();
+//    db.Database.EnsureCreated();
+//}
 
-
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -40,10 +44,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
-app.MapControllers();
+
+app.UseCors("AllowClient");
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
@@ -52,7 +56,6 @@ app.Run();
 
 
 
-//DB作成
 public class UsersDbContext : DbContext
 {
     public UsersDbContext(DbContextOptions<UsersDbContext> options)
@@ -84,7 +87,7 @@ public class Chat
 
 public static class Constants
 {
-    public const string _connectionString = "Server= 172.16.7.24\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
+    public const string _connectionString = "Server= (localDB)\\MSSQLLocalDB;Database=UsersDb;Trusted_Connection=True;TrustServerCertificate=True;";
 }
 
 namespace WebAPL_Pair_Programming_Team2
