@@ -38,7 +38,7 @@ document.getElementById("loginButton").addEventListener("click", async () => {
         };
 
         //POST送信
-        const response = await fetch("/api/login", {
+        const response = await fetch("http://172.16.7.24:5265/api/login", {
             method: "POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify(loginData)
