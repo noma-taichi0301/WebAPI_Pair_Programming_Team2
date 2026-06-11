@@ -8,6 +8,7 @@ document.getElementById("loginButton").addEventListener("click", async () => {
     const password = document.getElementById("password").value;
 
     //入力チェック
+    //エラーメッセージを削除
     const errorMessage = document.getElementById("errorMessage");
     errorMessage.textContent = "";
     errorMessage.style.display = "none";
@@ -25,6 +26,7 @@ document.getElementById("loginButton").addEventListener("click", async () => {
     if (errors.length > 0) {
         errorMessage.innerHTML = errors.join("<br>");
         errorMessage.style.display = "block";
+        console.info("ログイン不可");
         return;
     }
 
@@ -37,7 +39,7 @@ document.getElementById("loginButton").addEventListener("click", async () => {
             password: password
         };
 
-        //POST送信
+        //ログインPOST送信
         const response = await fetch("http://172.16.7.24:5265/api/login", {
             method: "POST",
             headers:{"Content-Type": "application/json"},
@@ -53,23 +55,31 @@ document.getElementById("loginButton").addEventListener("click", async () => {
             //ブラウザにデータを保存してチャット画面に遷移
             localStorage.setItem("userName", userName);
             window.location.href = "Chat.html";
+
         }
         else if (response.status === 400) {
+            console.warn("入力値不正");
             alert("入力値が不正です");
+
         }
         else if (response.status === 401) {
+            console.warn("ログイン失敗");
             errors.push("ユーザー名またはパスワードが正しくありません");
             errorMessage.innerHTML = errors.join("<br>");
             errorMessage.style.display = "block";
+
         }
         else if (response.status === 500){
+            console.warn("サーバーエラー");
             alert("サーバーエラー");
+
         }
 
     }
     catch (error) {
-        console.error("ログイン通信失敗", error);
         alert("通信に失敗しました");
+        console.error("ログイン通信失敗", error);
+
     }
 
 });
