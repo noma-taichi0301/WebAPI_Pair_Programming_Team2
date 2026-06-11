@@ -107,6 +107,17 @@ namespace WebAPL_Pair_Programming_Team2
                     message = "メッセージを入力してください"
                 });
             }
+            if (request.Message.Length>400)
+            {
+                _logger.LogWarning($"400文字を超えるメッセージが投稿されました");
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "メッセージが長すぎます"
+                });
+            }
+
+
             try
             {
                 using (var connection = new SqlConnection(_connectionString))
