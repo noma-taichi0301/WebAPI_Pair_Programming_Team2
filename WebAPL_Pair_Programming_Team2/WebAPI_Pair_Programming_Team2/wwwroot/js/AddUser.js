@@ -60,9 +60,7 @@ document.getElementById("addUserButton").addEventListener("click", async () => {
             window.location.href = "Login.html";
         }
         else if (response.status === 400) {
-            errors.push("入力値が不正です");
-            errorMessage.innerHTML = errors.join("<br>");
-            errorMessage.style.display = "block";
+            alert("入力値が不正です");
         }
         else if (response.status === 409) {
             errors.push("ユーザー名が重複しています。<br>別の名前にしてください。");

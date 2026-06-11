@@ -54,10 +54,8 @@ document.getElementById("loginButton").addEventListener("click", async () => {
             localStorage.setItem("userName", userName);
             window.location.href = "Chat.html";
         }
-        else if (response.status === 400){
-            errors.push("入力値が不正です");
-            errorMessage.innerHTML = errors.join("<br>");
-            errorMessage.style.display = "block";
+        else if (response.status === 400) {
+            alert("入力値が不正です");
         }
         else if (response.status === 401) {
             errors.push("ユーザー名またはパスワードが正しくありません");
